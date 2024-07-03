@@ -19,8 +19,7 @@ export const APPEARANCE_KEY = 'vitepress-theme-appearance'
 
 const HASH_RE = /#.*$/
 const HASH_OR_QUERY_RE = /[?#].*$/
-const INDEX_OR_EXT_RE = /(?:(^|\/)index)?\.(?:md|html)$/
-const SUFFIX_SLASH_RE = /\/$/
+const INDEX_OR_EXT_RE = /(?:(^|)\/index)?\.(?:md|html)$/
 
 export const inBrowser = typeof document !== 'undefined'
 
@@ -67,7 +66,6 @@ function normalize(path: string): string {
   return decodeURI(path)
     .replace(HASH_OR_QUERY_RE, '')
     .replace(INDEX_OR_EXT_RE, '$1')
-    .replace(SUFFIX_SLASH_RE, '')
 }
 
 export function isExternal(path: string): boolean {
